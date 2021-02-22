@@ -4,21 +4,13 @@ import java.time.LocalDateTime;
 
 public class CommentServiceModel {
 
-	private String title;
+
 	private String content;
 	// private User author;
 	private LocalDateTime dateCreate;
 
 	public CommentServiceModel() {
 		super();
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public String getContent() {
