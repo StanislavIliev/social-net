@@ -14,7 +14,7 @@ public class Post extends BaseEntity {
     private String title;
     private String content;
     private LocalDateTime datePosted;
-    //TODO : add relation with comment entity
+    //TODO : add relation with comment entity a
 
 
     public Post() {
