@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "comments")
 public class Comment extends BaseEntity {
 
-	private String title;
+
 	private String content;
 	// private User author;
 	private LocalDateTime dateCreate = LocalDateTime.now();
@@ -19,14 +19,6 @@ public class Comment extends BaseEntity {
 		super();
 	}
 
-	@Column(name = "title", nullable = false)
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	@Column(name = "content", nullable = false, columnDefinition = "TEXT")
 	public String getContent() {

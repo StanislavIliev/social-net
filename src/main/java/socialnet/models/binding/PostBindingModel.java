@@ -1,26 +1,28 @@
-package socialnet.models.entities;
+package socialnet.models.binding;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "posts")
-public class Post extends BaseEntity {
+public class PostBindingModel extends BaseBindingModel {
+
 
     private String title;
     private String content;
     private LocalDateTime datePosted;
-    //TODO : add relation with comment entity a
+    //TODO : ADD Comment
 
 
-    public Post() {
+    public PostBindingModel() {
+
     }
 
-    @Column(nullable = false)
+    @Length(min = 4, max = 25, message = "Title length must be between 3 and 20 symbols!")
+    @NotBlank
     public String getTitle() {
         return title;
     }
@@ -28,7 +30,9 @@ public class Post extends BaseEntity {
     public void setTitle(String title) {
         this.title = title;
     }
-    @Column(columnDefinition = "TEXT",nullable = false)
+
+    @Length(min = 3, message = "Title length must be minimum 3 symbols!")
+    @NotBlank
     public String getContent() {
         return content;
     }
@@ -36,8 +40,10 @@ public class Post extends BaseEntity {
     public void setContent(String content) {
         this.content = content;
     }
-    @Column(nullable = false)
+
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @FutureOrPresent(message = "Date cannot be in the past")
+    @NotNull
     public LocalDateTime getDatePosted() {
         return datePosted;
     }
