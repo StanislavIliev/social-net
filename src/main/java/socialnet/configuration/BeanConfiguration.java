@@ -11,20 +11,20 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 @Configuration
 public class BeanConfiguration {
 
-	@Bean
-	public ModelMapper modelMapper() {
-		var mapper = new ModelMapper();
-		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD);
+    @Bean
+    public ModelMapper modelMapper() {
+        var mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD);
 
 
-		return mapper;
-	}
+        return mapper;
+    }
 
 
-	@Bean
-	public PasswordEncoder getPasswdEncoder(){
-		PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
+    @Bean
+    public PasswordEncoder getPasswdEncoder() {
+        PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
 
-		return encoder;
-	}
+        return encoder;
+    }
 }

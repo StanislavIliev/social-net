@@ -1,29 +1,25 @@
-package socialnet.models.servicies;
+package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-import socialnet.models.binding.BaseBindingModel;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-public class PostServiceModel extends BaseServiceModel {
-
+public class MessageBindingModel {
 
     private String title;
     private String content;
-    private LocalDateTime datePosted;
-    //TODO : ADD Comment
+    private LocalDateTime dateSent;
+    //TODO Author and Recipient must be added
 
-
-    public PostServiceModel() {
-
+    public MessageBindingModel() {
     }
 
-    @Length(min = 4, max = 25, message = "Title length must be between 3 and 20 symbols!")
     @NotBlank
+    @Length(min = 1, max = 25, message = "Title length must be between 1 and 20 symbols!")
     public String getTitle() {
         return title;
     }
@@ -32,8 +28,8 @@ public class PostServiceModel extends BaseServiceModel {
         this.title = title;
     }
 
-    @Length(min = 3, message = "Title length must be minimum 3 symbols!")
     @NotBlank
+    @Length(min = 1, message = "Are you sure you want to send empty message?")
     public String getContent() {
         return content;
     }
@@ -42,13 +38,16 @@ public class PostServiceModel extends BaseServiceModel {
         this.content = content;
     }
 
+    //TODO - date and time must be set to exact sent-time may be???
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @FutureOrPresent(message = "Date cannot be in the past")
     @NotNull
-    public LocalDateTime getDatePosted() {
-        return datePosted;
+    public LocalDateTime getDateSent() {
+        return dateSent;
     }
 
-    public void setDatePosted(LocalDateTime datePosted) {
-        this.datePosted = datePosted;
+    public void setDateSent(LocalDateTime dateSent) {
+        this.dateSent = dateSent;
     }
 }
