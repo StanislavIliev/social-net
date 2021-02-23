@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +13,7 @@ public class Comment extends BaseEntity {
 
 
     private String content;
-    // private User author;
+    private User author;
     private LocalDateTime dateCreate = LocalDateTime.now();
 
     public Comment() {
@@ -37,4 +38,13 @@ public class Comment extends BaseEntity {
     public void setDateCreate(LocalDateTime dateCreate) {
         this.dateCreate = dateCreate;
     }
+
+    @ManyToOne
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
 }

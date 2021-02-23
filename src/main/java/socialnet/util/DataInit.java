@@ -1,7 +1,9 @@
 package socialnet.util;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataInit implements CommandLineRunner {
 
     @Override

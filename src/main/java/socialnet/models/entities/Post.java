@@ -4,8 +4,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -15,6 +17,7 @@ public class Post extends BaseEntity {
     private String content;
     private LocalDateTime datePosted;
     //TODO : add relation with comment entity
+    private List<Comment> comments;
 
     public Post() {
     }
@@ -28,7 +31,7 @@ public class Post extends BaseEntity {
         this.title = title;
     }
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(columnDefinition = "TEXT",nullable = false)
     public String getContent() {
         return content;
     }
@@ -45,5 +48,14 @@ public class Post extends BaseEntity {
 
     public void setDatePosted(LocalDateTime datePosted) {
         this.datePosted = datePosted;
+    }
+
+    @OneToMany
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
