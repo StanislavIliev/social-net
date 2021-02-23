@@ -10,20 +10,20 @@ import java.util.List;
 
 @Entity
 @Table(name = "authorities")
-public class AuthorityEntity extends BaseEntity implements GrantedAuthority{
+public class Authority extends BaseEntity implements GrantedAuthority{
 
     @Column(nullable = false, unique = true)
     private String role;
 
-    public AuthorityEntity(){
+    public Authority(){
 
     }
 
-    public AuthorityEntity(String role) {
+    public Authority(String role) {
         this.role = role;
     }
 
-    public AuthorityEntity(String id, String role) {
+    public Authority(String id, String role) {
         super(id);
         this.role = role;
     }

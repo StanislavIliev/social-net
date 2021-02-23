@@ -1,6 +1,6 @@
 package socialnet.service;
 
-import socialnet.models.binding.UserServiceModel;
+import socialnet.models.servicies.UserServiceModel;
 
 import java.util.List;
 
