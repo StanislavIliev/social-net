@@ -1,4 +1,4 @@
-package socialnet.models.auth;
+package socialnet.models.entities;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserSpringDetails implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
     private String username;
     private String password;
     private String email;
@@ -25,7 +25,7 @@ public class UserSpringDetails implements UserDetails {
 //    private List<Message> messages;
     private List<Authority> authorities;
 
-    public UserSpringDetails(User user) {
+    public UserDetailsImpl(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.email = user.getEmail();
