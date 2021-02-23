@@ -21,6 +21,7 @@ public class UserServiceModel extends BaseServiceModel {
     private String confirmLinkPassword;
     //    @OneToMany //TODO
 //    private List<Message> messages;
+    //
     private List<Authority> authorities;
 
     public UserServiceModel() {

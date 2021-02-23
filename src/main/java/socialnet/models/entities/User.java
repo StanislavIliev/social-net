@@ -22,6 +22,7 @@ public class User extends BaseEntity {
     private String confirmLinkPassword;
 //    @OneToMany //TODO
 //    private List<Message> messages;
+    //
     private List<Authority> authorities;
 
     public User() {
