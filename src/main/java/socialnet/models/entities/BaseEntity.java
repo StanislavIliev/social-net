@@ -10,29 +10,29 @@ import org.hibernate.annotations.GenericGenerator;
 @MappedSuperclass
 public abstract class BaseEntity {
 
-	private String id;
+    private String id;
 
-	public BaseEntity() {
-		super();
-	}
+    public BaseEntity() {
+        super();
+    }
 
-	public BaseEntity(String id) {
-		super();
-		this.id = id;
-	}
+    public BaseEntity(String id) {
+        super();
+        this.id = id;
+    }
 
-	@Id
-	@GeneratedValue(generator = "uuid-string")
-	@GenericGenerator(
-			name = "uuid-string",
-			strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id", nullable = false, unique = true)
-	public String getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(generator = "uuid-string")
+    @GenericGenerator(
+            name = "uuid-string",
+            strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "id", nullable = false, unique = true)
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
-	
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }

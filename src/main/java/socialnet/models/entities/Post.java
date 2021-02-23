@@ -14,8 +14,7 @@ public class Post extends BaseEntity {
     private String title;
     private String content;
     private LocalDateTime datePosted;
-    //TODO : add relation with comment entity a
-
+    //TODO : add relation with comment entity
 
     public Post() {
     }
@@ -28,7 +27,8 @@ public class Post extends BaseEntity {
     public void setTitle(String title) {
         this.title = title;
     }
-    @Column(columnDefinition = "TEXT",nullable = false)
+
+    @Column(columnDefinition = "TEXT", nullable = false)
     public String getContent() {
         return content;
     }
@@ -36,6 +36,7 @@ public class Post extends BaseEntity {
     public void setContent(String content) {
         this.content = content;
     }
+
     @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     public LocalDateTime getDatePosted() {
