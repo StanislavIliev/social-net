@@ -1,7 +1,6 @@
 package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
-import socialnet.models.entities.Authority;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -19,7 +18,7 @@ public class UserBindingModel {
     private String confirmLinkPassword;
     //    @OneToMany //TODO
 //    private List<Message> messages;
-    private List<Authority> authorities;
+    private List<AuthorityBindingModel> authorities;
 
     public UserBindingModel() {
         super();
@@ -109,11 +108,11 @@ public class UserBindingModel {
         this.confirmLinkPassword = confirmLinkPassword;
     }
 
-    public List<Authority> getAuthorities() {
+    public List<AuthorityBindingModel> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(List<Authority> authorities) {
+    public void setAuthorities(List<AuthorityBindingModel> authorities) {
         this.authorities = authorities;
     }
 }
