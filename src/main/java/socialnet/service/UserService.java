@@ -1,10 +1,11 @@
 package socialnet.service;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
 import socialnet.models.servicies.UserServiceModel;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     UserServiceModel register(UserServiceModel user);
 
