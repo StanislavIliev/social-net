@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "messages")
-public class Message {
+public class Message extends BaseEntity {
 
     private String title;
     private String content;

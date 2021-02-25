@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 public class CommentBindingModel {
 
-
 	private String content;
 	// private User author;
 	private LocalDateTime dateCreate;

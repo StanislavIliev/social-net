@@ -12,7 +12,6 @@ import java.util.List;
 @Table(name = "authorities")
 public class Authority extends BaseEntity implements GrantedAuthority{
 
-    @Column(nullable = false, unique = true)
     private String role;
 
     public Authority(){
@@ -28,7 +27,7 @@ public class Authority extends BaseEntity implements GrantedAuthority{
         this.role = role;
     }
 
-
+    @Column(nullable = false, unique = true)
     public String getRole() {
         return role;
     }

@@ -20,6 +20,7 @@ public class User extends BaseEntity {
     private Boolean isEnabled;
     private Integer phone;
     private String confirmLinkPassword;
+    //private List<User> friends;
 //    @OneToMany //TODO
 //    private List<Message> messages;
     //
