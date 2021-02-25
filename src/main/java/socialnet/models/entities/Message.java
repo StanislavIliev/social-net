@@ -14,7 +14,6 @@ public class Message extends BaseEntity {
     private String title;
     private String content;
     private LocalDateTime dateSent;
-    //TODO Author and Recipient must be added
 
     public Message() {
     }

@@ -12,33 +12,21 @@ import java.util.List;
 @Table(name = "authorities")
 public class Authority extends BaseEntity implements GrantedAuthority{
 
-    private String role;
+    private String authority;
 
     public Authority(){
-
     }
 
-    public Authority(String role) {
-        this.role = role;
-    }
-
-    public Authority(String id, String role) {
-        super(id);
-        this.role = role;
-    }
-
-    @Column(nullable = false, unique = true)
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public Authority(String authority) {
+        this.authority = authority;
     }
 
     @Override
     public String getAuthority() {
-        return this.role;
+        return authority;
     }
 
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 }

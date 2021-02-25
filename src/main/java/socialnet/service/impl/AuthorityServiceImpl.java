@@ -20,17 +20,14 @@ public class AuthorityServiceImpl implements AuthorityService {
         this.authorityRepository = authorityRepository;
     }
 
-    public AuthorityServiceImpl() {
-    }
+    /*public AuthorityServiceModel findByName(String roleName) {
+//        Authority authority = authorityRepository.getByRole(roleName);
 
-    public AuthorityServiceModel findByName(String roleName) {
-        Authority authority = authorityRepository.getByRole(roleName);
-
-        AuthorityServiceModel targetAuthority = authority == null ? null : modelMapper.map(authority, AuthorityServiceModel.class
+//        AuthorityServiceModel targetAuthority = authority == null ? null : modelMapper.map(authority, AuthorityServiceModel.class
         );
 
         return targetAuthority;
     }
-
+*/
 
 }

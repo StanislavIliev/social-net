@@ -20,10 +20,9 @@ public class User extends BaseEntity {
     private Boolean isEnabled;
     private Integer phone;
     private String confirmLinkPassword;
-    //private List<User> friends;
-//    @OneToMany //TODO
-//    private List<Message> messages;
-    //
+    private String role;
+    private List<User> friends;
+    private List<Message> messages;
     private List<Authority> authorities;
 
     public User() {
@@ -117,5 +116,31 @@ public class User extends BaseEntity {
 
     public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @OneToMany
+    public List<User> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
+    }
+
+    @OneToMany
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }

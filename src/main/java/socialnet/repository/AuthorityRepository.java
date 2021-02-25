@@ -6,5 +6,5 @@ import socialnet.models.entities.Authority;
 
 @Repository
 public interface AuthorityRepository extends JpaRepository<Authority,String> {
-    Authority getByRole(String roleName);
+//    Authority getByRole(String roleName);
 }

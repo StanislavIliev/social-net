@@ -7,7 +7,7 @@ import socialnet.models.views.MessageViewModel;
 
 import java.util.UUID;
 
-public interface MessageRepository extends JpaRepository<Message, UUID> {
+public interface MessageRepository extends JpaRepository<Message, String> {
 
     //TODO
 }
