@@ -13,6 +13,6 @@ public class DataInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.emailService.sendSimpleMessage("...........", "test", "text");
+//        this.emailService.sendSimpleMessage("...........", "test", "text");
     }
 }
