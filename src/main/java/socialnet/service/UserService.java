@@ -1,13 +1,14 @@
 package socialnet.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import socialnet.exceptions.UserExistException;
 import socialnet.models.servicies.UserServiceModel;
 
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
-    UserServiceModel register(UserServiceModel user);
+    UserServiceModel register(UserServiceModel user) throws UserExistException;
 
     UserServiceModel resetPassword(UserServiceModel user);
 

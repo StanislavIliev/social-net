@@ -15,7 +15,8 @@ public class UserPrincipal implements UserDetails {
 
     private User user;
 
-    public UserPrincipal() {
+    public UserPrincipal(User user) {
+        this.user = user;
     }
 
     @Override
