@@ -3,11 +3,13 @@ package socialnet.models.servicies;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 import socialnet.models.binding.BaseBindingModel;
+import socialnet.models.entities.Comment;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PostServiceModel extends BaseServiceModel {
 
@@ -15,11 +17,19 @@ public class PostServiceModel extends BaseServiceModel {
     private String title;
     private String content;
     private LocalDateTime datePosted;
-    //TODO : ADD Comment
+    private List<CommentServiceModel> comments;
 
 
     public PostServiceModel() {
+        super();
+    }
 
+    public List<CommentServiceModel> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentServiceModel> comments) {
+        this.comments = comments;
     }
 
     @Length(min = 4, max = 25, message = "Title length must be between 3 and 20 symbols!")

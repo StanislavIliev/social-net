@@ -6,7 +6,7 @@ public class CommentServiceModel {
 
 
 	private String content;
-	// private User author;
+	private UserServiceModel author;
 	private LocalDateTime dateCreate;
 
 	public CommentServiceModel() {
@@ -19,6 +19,14 @@ public class CommentServiceModel {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public UserServiceModel getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(UserServiceModel author) {
+		this.author = author;
 	}
 
 	public LocalDateTime getDateCreate() {

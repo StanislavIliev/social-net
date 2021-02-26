@@ -2,6 +2,8 @@ package socialnet.models.servicies;
 
 import org.hibernate.validator.constraints.Length;
 import socialnet.models.entities.Authority;
+import socialnet.models.entities.Message;
+import socialnet.models.entities.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class UserServiceModel extends BaseServiceModel {
+
 
     private String username;
     private String password;
@@ -19,10 +22,10 @@ public class UserServiceModel extends BaseServiceModel {
     private Boolean isEnabled;
     private Integer phone;
     private String confirmLinkPassword;
-    //    @OneToMany //TODO
-//    private List<Message> messages;
-    //
-    private List<Authority> authorities;
+    private String role;
+    private List<UserServiceModel> friends;
+    private List<MessageServiceModel> messages;
+    private List<AuthorityServiceModel> authorities;
 
     public UserServiceModel() {
         super();
@@ -31,7 +34,6 @@ public class UserServiceModel extends BaseServiceModel {
     public String getUsername() {
         return username;
     }
-
 
     public void setUsername(String username) {
         this.username = username;
@@ -53,7 +55,6 @@ public class UserServiceModel extends BaseServiceModel {
         this.email = email;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -61,7 +62,6 @@ public class UserServiceModel extends BaseServiceModel {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     public String getLastName() {
         return lastName;
@@ -103,11 +103,35 @@ public class UserServiceModel extends BaseServiceModel {
         this.confirmLinkPassword = confirmLinkPassword;
     }
 
-    public List<Authority> getAuthorities() {
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public List<UserServiceModel> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<UserServiceModel> friends) {
+        this.friends = friends;
+    }
+
+    public List<MessageServiceModel> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<MessageServiceModel> messages) {
+        this.messages = messages;
+    }
+
+    public List<AuthorityServiceModel> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(List<Authority> authorities) {
+    public void setAuthorities(List<AuthorityServiceModel> authorities) {
         this.authorities = authorities;
     }
 }
