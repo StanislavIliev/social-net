@@ -18,9 +18,8 @@ public class UserServiceModel extends BaseServiceModel {
     private String email;
     private String firstName;
     private String lastName;
-    private LocalDateTime registerDate;
     private Boolean isEnabled;
-    private Integer phone;
+    private String phone;
     private String confirmLinkPassword;
     private String role;
     private List<UserServiceModel> friends;
@@ -71,14 +70,6 @@ public class UserServiceModel extends BaseServiceModel {
         this.lastName = lastName;
     }
 
-    public LocalDateTime getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(LocalDateTime registerDate) {
-        this.registerDate = registerDate;
-    }
-
     public Boolean getEnabled() {
         return isEnabled;
     }
@@ -87,11 +78,11 @@ public class UserServiceModel extends BaseServiceModel {
         isEnabled = enabled;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

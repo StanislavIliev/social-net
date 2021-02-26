@@ -16,7 +16,7 @@ public class UserBindingModel {
     private String lastName;
     private LocalDateTime registerDate;
     private Boolean isEnabled;
-    private Integer phone;
+    private String phone;
     private String confirmLinkPassword;
     //    @OneToMany //TODO
 //    private List<Message> messages;
@@ -94,11 +94,11 @@ public class UserBindingModel {
         isEnabled = enabled;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

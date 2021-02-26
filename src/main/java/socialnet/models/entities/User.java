@@ -16,9 +16,9 @@ public class User extends BaseEntity {
     private String email;
     private String firstName;
     private String lastName;
-    private LocalDateTime registerDate;
+    private LocalDateTime registerDate = LocalDateTime.now();
     private Boolean isEnabled;
-    private Integer phone;
+    private String phone;
     private String confirmLinkPassword;
     private String role;
     private List<User> friends;
@@ -92,11 +92,11 @@ public class User extends BaseEntity {
     }
 
     @Column(nullable = false, unique = true)
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
