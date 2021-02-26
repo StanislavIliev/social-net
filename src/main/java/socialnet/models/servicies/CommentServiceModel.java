@@ -2,7 +2,7 @@ package socialnet.models.servicies;
 
 import java.time.LocalDateTime;
 
-public class CommentServiceModel {
+public class CommentServiceModel extends BaseServiceModel{
 
 
 	private String content;
@@ -36,5 +36,5 @@ public class CommentServiceModel {
 	public void setDateCreate(LocalDateTime dateCreate) {
 		this.dateCreate = dateCreate;
 	}
-	
+
 }

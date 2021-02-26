@@ -2,7 +2,7 @@ package socialnet.models.servicies;
 
 import java.time.LocalDateTime;
 
-public class MessageServiceModel {
+public class MessageServiceModel extends BaseServiceModel{
 
     private String title;
     private String content;
