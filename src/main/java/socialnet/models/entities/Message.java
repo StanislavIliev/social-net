@@ -2,9 +2,7 @@ package socialnet.models.entities;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +11,10 @@ public class Message extends BaseEntity {
 
     private String title;
     private String content;
-    private LocalDateTime dateSent;
+    private LocalDateTime dateSent = LocalDateTime.now();
+    private User author;
+    private User recipient;
+    private boolean status;
 
     public Message() {
     }
@@ -36,13 +37,39 @@ public class Message extends BaseEntity {
         this.content = content;
     }
 
-    @Column(name = "date_sent", nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    public LocalDateTime getDateSent() {
-        return dateSent;
+//    @Column(name = "date_sent", nullable = false)
+//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    public LocalDateTime getDateSent() {
+//        return dateSent;
+//    }
+//
+//    public void setDateSent(LocalDateTime dateSent) {
+//        this.dateSent = dateSent;
+//    }
+
+    @ManyToOne
+    public User getAuthor() {
+        return author;
     }
 
-    public void setDateSent(LocalDateTime dateSent) {
-        this.dateSent = dateSent;
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    @OneToOne
+    public User getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(User recipient) {
+        this.recipient = recipient;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
