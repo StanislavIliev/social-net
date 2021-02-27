@@ -2,17 +2,19 @@ package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-
+import socialnet.models.entities.User;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-public class MessageBindingModel {
+public class MessageBindingModel extends BaseBindingModel{
 
     private String title;
     private String content;
-    private LocalDateTime dateSent;
+    private LocalDateTime dateSent = LocalDateTime.now();
+    private User author;
+    private User recipient;
+    private boolean status;
     //TODO Author and Recipient must be added
 
     public MessageBindingModel() {
@@ -40,14 +42,40 @@ public class MessageBindingModel {
 
     //TODO - date and time must be set to exact sent-time may be???
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @FutureOrPresent(message = "Date cannot be in the past")
-    @NotNull
-    public LocalDateTime getDateSent() {
-        return dateSent;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    @FutureOrPresent(message = "Date cannot be in the past")
+//    @NotNull
+//    public LocalDateTime getDateSent() {
+//        return dateSent;
+//    }
+//
+//    public void setDateSent(LocalDateTime dateSent) {
+//        this.dateSent = dateSent;
+//    }
+
+    @NotBlank
+    public User getAuthor() {
+        return author;
     }
 
-    public void setDateSent(LocalDateTime dateSent) {
-        this.dateSent = dateSent;
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    @NotBlank
+    public User getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(User recipient) {
+        this.recipient = recipient;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
