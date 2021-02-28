@@ -27,7 +27,6 @@ public class MessageServiceImpl implements MessageService {
         return this.messageRepository.getAllByRecipient(recipient);
     }
 
-
     @Override
     public List<MessageServiceModel> getAllByStatus(MessageServiceModel status) {
         return null;
