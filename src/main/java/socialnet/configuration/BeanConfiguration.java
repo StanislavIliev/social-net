@@ -15,16 +15,12 @@ public class BeanConfiguration {
     public ModelMapper modelMapper() {
         var mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STANDARD);
-
-
         return mapper;
     }
-
 
     @Bean
     public PasswordEncoder getPasswdEncoder() {
         PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
-
         return encoder;
     }
 }
