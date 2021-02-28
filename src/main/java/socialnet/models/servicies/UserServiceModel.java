@@ -12,7 +12,6 @@ import java.util.List;
 
 public class UserServiceModel extends BaseServiceModel {
 
-
     private String username;
     private String password;
     private String email;
