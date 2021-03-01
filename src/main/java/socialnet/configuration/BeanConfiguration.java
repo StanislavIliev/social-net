@@ -1,5 +1,6 @@
 package socialnet.configuration;
 
+import java.util.Random;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +23,12 @@ public class BeanConfiguration {
     public PasswordEncoder getPasswdEncoder() {
         PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
         return encoder;
+    }
+
+
+    @Bean
+    public Random random() {
+        return new Random();
     }
 
     @Bean
