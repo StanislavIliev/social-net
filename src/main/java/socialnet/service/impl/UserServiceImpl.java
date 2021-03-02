@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
         this.authorityRepository = authorityRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.javaMailSender = javaMailSender;
+
     }
 
     //

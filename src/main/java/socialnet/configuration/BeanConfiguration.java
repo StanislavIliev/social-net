@@ -20,18 +20,6 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public PasswordEncoder getPasswdEncoder() {
-        PasswordEncoder encoder = new Pbkdf2PasswordEncoder();
-        return encoder;
-    }
-
-
-    @Bean
-    public Random random() {
-        return new Random();
-    }
-
-    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }

@@ -8,6 +8,7 @@ import socialnet.repository.UserRepository;
 import socialnet.service.EmailService;
 import java.util.UUID;
 
+
 @Service
 public class MailServiceImpl implements EmailService {
 
@@ -18,6 +19,7 @@ public class MailServiceImpl implements EmailService {
         this.javaMailSender = javaMailSender;
         this.userRepository = userRepository;
     }
+
 
     @Override
     public void sendSimpleMessage(String to, String subject, String text) {
@@ -38,5 +40,4 @@ public class MailServiceImpl implements EmailService {
     public static String generateString() {
         return UUID.randomUUID().toString();
     }
-
 }
