@@ -1,9 +1,6 @@
 package socialnet.models.servicies;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
-import socialnet.models.binding.BaseBindingModel;
-import socialnet.models.entities.Comment;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;

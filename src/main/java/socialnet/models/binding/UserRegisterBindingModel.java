@@ -1,7 +1,5 @@
 package socialnet.models.binding;
 
-import java.time.LocalDateTime;
-
 public class UserRegisterBindingModel {
 
     private String username;

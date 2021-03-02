@@ -1,10 +1,8 @@
 package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
-import socialnet.constants.RegexConstant;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.List;
 

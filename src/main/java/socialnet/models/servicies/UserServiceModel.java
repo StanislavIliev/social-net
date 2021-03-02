@@ -1,13 +1,5 @@
 package socialnet.models.servicies;
 
-import org.hibernate.validator.constraints.Length;
-import socialnet.models.entities.Authority;
-import socialnet.models.entities.Message;
-import socialnet.models.entities.User;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class UserServiceModel extends BaseServiceModel {

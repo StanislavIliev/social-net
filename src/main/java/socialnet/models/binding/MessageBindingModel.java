@@ -1,9 +1,8 @@
 package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 import socialnet.models.entities.User;
-import javax.validation.constraints.FutureOrPresent;
+
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
