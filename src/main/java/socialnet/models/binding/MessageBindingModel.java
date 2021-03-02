@@ -1,20 +1,15 @@
 package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
-import socialnet.models.entities.User;
 
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
 
-public class MessageBindingModel extends BaseBindingModel{
+public class MessageBindingModel extends BaseBindingModel {
 
     private String title;
     private String content;
-    private LocalDateTime dateSent = LocalDateTime.now();
-    private User author;
-    private User recipient;
-    private boolean status;
-    //TODO Author and Recipient must be added
+    private boolean readStatus;
+    //TODO SQL injection prevention
 
     public MessageBindingModel() {
     }
@@ -39,42 +34,11 @@ public class MessageBindingModel extends BaseBindingModel{
         this.content = content;
     }
 
-    //TODO - date and time must be set to exact sent-time may be???
-
-//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-//    @FutureOrPresent(message = "Date cannot be in the past")
-//    @NotNull
-//    public LocalDateTime getDateSent() {
-//        return dateSent;
+//    public boolean isReadStatus() {
+//        return readStatus;
 //    }
 //
-//    public void setDateSent(LocalDateTime dateSent) {
-//        this.dateSent = dateSent;
+//    public void setReadStatus(boolean readStatus) {
+//        this.readStatus = readStatus;
 //    }
-
-    @NotBlank
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    @NotBlank
-    public User getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(User recipient) {
-        this.recipient = recipient;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 }

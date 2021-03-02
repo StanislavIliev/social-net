@@ -8,7 +8,7 @@ public class MessageViewModel {
 
     private String title;
     private String content;
-    private LocalDateTime dateSent = LocalDateTime.now();
+    private LocalDateTime dateSent;
     private User author;
     private User recipient;
     private boolean status;

@@ -1,9 +1,6 @@
 package socialnet.models.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,7 +19,9 @@ public class User extends BaseEntity {
     private String confirmLinkPassword;
     private String role;
     private List<User> friends;
-    private List<Message> messages;
+    private List<String> receivedMessages;
+    private List<String> sentMessages;
+    private List<String> deletedMessages;
     private List<Authority> authorities;
 
     public User() {
@@ -135,12 +134,30 @@ public class User extends BaseEntity {
         this.friends = friends;
     }
 
-    @OneToMany
-    public List<Message> getMessages() {
-        return messages;
+    @ElementCollection
+    public List<String> getReceivedMessages() {
+        return receivedMessages;
     }
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
+    public void setReceivedMessages(List<String> receivedMessages) {
+        this.receivedMessages = receivedMessages;
+    }
+
+    @ElementCollection
+    public List<String> getSentMessages() {
+        return sentMessages;
+    }
+
+    public void setSentMessages(List<String> sentMessages) {
+        this.sentMessages = sentMessages;
+    }
+
+    @ElementCollection
+    public List<String> getDeletedMessages() {
+        return deletedMessages;
+    }
+
+    public void setDeletedMessages(List<String> deletedMessages) {
+        this.deletedMessages = deletedMessages;
     }
 }

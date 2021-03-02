@@ -2,6 +2,7 @@ package socialnet.models.binding;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,8 +17,9 @@ public class UserBindingModel {
     private Boolean isEnabled;
     private String phone;
     private String confirmLinkPassword;
-    //    @OneToMany //TODO
-//    private List<Message> messages;
+    private List<String> receivedMessages;
+    private List<String> sentMessages;
+    private List<String> deletedMessages;
     private List<AuthorityBindingModel> authorities;
 
     public UserBindingModel() {
@@ -29,7 +31,6 @@ public class UserBindingModel {
     public String getUsername() {
         return username;
     }
-
 
     public void setUsername(String username) {
         this.username = username;
@@ -45,7 +46,7 @@ public class UserBindingModel {
         this.password = password;
     }
 
-    //  TODO  @Pattern()
+    @Email
     @NotBlank
     public String getEmail() {
         return email;
@@ -74,7 +75,6 @@ public class UserBindingModel {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
 
     public LocalDateTime getRegisterDate() {
         return registerDate;
@@ -114,5 +114,29 @@ public class UserBindingModel {
 
     public void setAuthorities(List<AuthorityBindingModel> authorities) {
         this.authorities = authorities;
+    }
+
+    public List<String> getReceivedMessages() {
+        return receivedMessages;
+    }
+
+    public void setReceivedMessages(List<String> receivedMessages) {
+        this.receivedMessages = receivedMessages;
+    }
+
+    public List<String> getSentMessages() {
+        return sentMessages;
+    }
+
+    public void setSentMessages(List<String> sentMessages) {
+        this.sentMessages = sentMessages;
+    }
+
+    public List<String> getDeletedMessages() {
+        return deletedMessages;
+    }
+
+    public void setDeletedMessages(List<String> deletedMessages) {
+        this.deletedMessages = deletedMessages;
     }
 }
