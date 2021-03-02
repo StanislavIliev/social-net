@@ -2,6 +2,7 @@ package socialnet.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import socialnet.models.entities.Message;
+
 import socialnet.models.entities.User;
 import socialnet.models.servicies.MessageServiceModel;
 

@@ -3,8 +3,6 @@ package socialnet.service.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import socialnet.models.entities.Authority;
-import socialnet.models.servicies.AuthorityServiceModel;
 import socialnet.repository.AuthorityRepository;
 import socialnet.service.AuthorityService;
 

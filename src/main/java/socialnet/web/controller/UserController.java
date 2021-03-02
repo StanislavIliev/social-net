@@ -3,12 +3,9 @@ package socialnet.web.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import socialnet.exceptions.UserExistException;
-import socialnet.models.binding.UserBindingModel;
 import socialnet.models.binding.UserRegisterBindingModel;
 import socialnet.models.servicies.UserServiceModel;
 import socialnet.models.views.UserViewModel;
@@ -29,7 +26,6 @@ public class UserController {
         this.modelMapper = modelMapper;
     }
 
-    @PreAuthorize("!hasRole('ROLE_USER')")
     @PostMapping(value = "/register")
     public ResponseEntity<UserViewModel> registerPost(@Valid @ModelAttribute UserRegisterBindingModel user)
             throws UserExistException {
