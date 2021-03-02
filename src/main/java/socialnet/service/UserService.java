@@ -1,6 +1,7 @@
 package socialnet.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import socialnet.exceptions.UserDoesNotExistException;
 import socialnet.exceptions.UserExistException;
 import socialnet.models.servicies.UserServiceModel;
 
@@ -10,11 +11,11 @@ public interface UserService extends UserDetailsService {
 
     UserServiceModel register(UserServiceModel user) throws UserExistException;
 
-    UserServiceModel resetPassword(UserServiceModel user);
+    void resetPassword(UserServiceModel user) throws UserDoesNotExistException;
 
     UserServiceModel update(UserServiceModel user);
 
-    UserServiceModel confirmPassword(UserServiceModel user);
+    UserServiceModel confirmPassword(UserServiceModel user) throws UserDoesNotExistException;
 
     List<UserServiceModel> getAllUser(UserServiceModel user);
 

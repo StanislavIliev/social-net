@@ -12,5 +12,4 @@ public interface MessageService {
     List<MessageServiceModel> getAllByRecipient(User recipient);
     List<MessageServiceModel> getAllByStatus(MessageServiceModel status);
 
-
 }

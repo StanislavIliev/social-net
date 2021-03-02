@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import socialnet.exceptions.UserDoesNotExistException;
 import socialnet.exceptions.UserExistException;
 import socialnet.models.entities.Authority;
 import socialnet.models.entities.User;
@@ -16,6 +18,8 @@ import socialnet.util.UserPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.SimpleMailMessage;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,19 +27,26 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final AuthorityRepository authorityRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final JavaMailSender javaMailSender;
+
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, AuthorityRepository authorityRepository) {
+    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper,
+                           AuthorityRepository authorityRepository, BCryptPasswordEncoder bCryptPasswordEncoder, JavaMailSender javaMailSender) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.authorityRepository = authorityRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.javaMailSender = javaMailSender;
+
     }
 
     //
 
     @Override
     public UserServiceModel register(UserServiceModel inputUser) throws UserExistException {
-        User fUser = this.userRepository.findUsersByEmail(inputUser.getEmail()).orElse(null);
+        User fUser = this.userRepository.findUserByEmail(inputUser.getEmail()).orElse(null);
         if (fUser != null) throw new UserExistException("User exist exception!");
         User newUser = this.modelMapper.map(inputUser, User.class);
         this.setRoleAndAuthorities(newUser);
@@ -49,8 +60,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserServiceModel resetPassword(UserServiceModel user) {
-        return null;
+    public void resetPassword(UserServiceModel user) throws UserDoesNotExistException {
+        User uuu= this.userRepository.findUsersByUsername(user.getUsername()).orElse(null);
+        if(uuu == null){
+            throw  new UserDoesNotExistException("User does not exist.");
+        }
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(user.getEmail());
+        javaMailSender.send(message);
     }
 
     @Override
@@ -59,8 +76,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserServiceModel confirmPassword(UserServiceModel user) {
-        return null;
+    public UserServiceModel confirmPassword(UserServiceModel user) throws UserDoesNotExistException {
+        String uniqueString = user.getConfirmLinkPassword();
+        String password = user.getPassword();
+
+        User foundUser = this.userRepository.findUserByConfirmLinkPassword(uniqueString).orElse(null);
+
+        if(foundUser == null){
+            throw new UserDoesNotExistException("User not found");
+        }
+        foundUser.setPassword(this.bCryptPasswordEncoder.encode(password));
+        foundUser.setConfirmLinkPassword(" ");
+
+        this.userRepository.saveAndFlush(foundUser);
+        return  this.modelMapper.map(foundUser,UserServiceModel.class);
     }
 
     @Override
