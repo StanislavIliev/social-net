@@ -1,17 +1,13 @@
 package socialnet.models.views;
 
-import socialnet.models.entities.User;
-
 import java.time.LocalDateTime;
 
-public class MessageViewModel {
+public class MessageViewModel extends BaseViewModel {
 
     private String title;
     private String content;
     private LocalDateTime dateSent;
-    private User author;
-    private User recipient;
-    private boolean status;
+    private boolean readStatus;
 
     public MessageViewModel() {
     }
@@ -40,27 +36,11 @@ public class MessageViewModel {
         this.dateSent = dateSent;
     }
 
-    public User getAuthor() {
-        return author;
+    public boolean isReadStatus() {
+        return readStatus;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public User getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(User recipient) {
-        this.recipient = recipient;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setReadStatus(boolean readStatus) {
+        this.readStatus = readStatus;
     }
 }

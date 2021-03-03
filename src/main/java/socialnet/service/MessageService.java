@@ -1,15 +1,17 @@
 package socialnet.service;
 
-import socialnet.models.entities.User;
 import socialnet.models.servicies.MessageServiceModel;
+import socialnet.models.views.MessageViewModel;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MessageService {
 
     MessageServiceModel send(MessageServiceModel message);
 
-    List<MessageServiceModel> getAllByRecipient(User recipient);
-    List<MessageServiceModel> getAllByStatus(MessageServiceModel status);
+    List<MessageViewModel> getAllByReadStatus(boolean status);
+
+    List<MessageViewModel> getAllByDateSent(LocalDateTime date);
 
 }
