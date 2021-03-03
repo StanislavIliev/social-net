@@ -14,7 +14,9 @@ public class UserServiceModel extends BaseServiceModel {
     private String confirmLinkPassword;
     private String role;
     private List<UserServiceModel> friends;
-    private List<MessageServiceModel> messages;
+    private List<String> receivedMessages;
+    private List<String> sentMessages;
+    private List<String> deletedMessages;
     private List<AuthorityServiceModel> authorities;
 
     public UserServiceModel() {
@@ -101,12 +103,28 @@ public class UserServiceModel extends BaseServiceModel {
         this.friends = friends;
     }
 
-    public List<MessageServiceModel> getMessages() {
-        return messages;
+    public List<String> getReceivedMessages() {
+        return receivedMessages;
     }
 
-    public void setMessages(List<MessageServiceModel> messages) {
-        this.messages = messages;
+    public void setReceivedMessages(List<String> receivedMessages) {
+        this.receivedMessages = receivedMessages;
+    }
+
+    public List<String> getSentMessages() {
+        return sentMessages;
+    }
+
+    public void setSentMessages(List<String> sentMessages) {
+        this.sentMessages = sentMessages;
+    }
+
+    public List<String> getDeletedMessages() {
+        return deletedMessages;
+    }
+
+    public void setDeletedMessages(List<String> deletedMessages) {
+        this.deletedMessages = deletedMessages;
     }
 
     public List<AuthorityServiceModel> getAuthorities() {

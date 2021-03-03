@@ -9,12 +9,11 @@ public class Message extends BaseEntity {
 
     private String title;
     private String content;
-    private LocalDateTime dateSent = LocalDateTime.now();
-    private User author;
-    private User recipient;
-    private boolean status;
+    private LocalDateTime dateSent;
+    private boolean readStatus;
 
     public Message() {
+        dateSent = LocalDateTime.now();
     }
 
     @Column(nullable = false)
@@ -35,39 +34,11 @@ public class Message extends BaseEntity {
         this.content = content;
     }
 
-//    @Column(name = "date_sent", nullable = false)
-//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-//    public LocalDateTime getDateSent() {
-//        return dateSent;
-//    }
-//
-//    public void setDateSent(LocalDateTime dateSent) {
-//        this.dateSent = dateSent;
-//    }
-
-    @ManyToOne
-    public User getAuthor() {
-        return author;
+    public boolean isReadStatus() {
+        return readStatus;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    @OneToOne
-    public User getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(User recipient) {
-        this.recipient = recipient;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setReadStatus(boolean readStatus) {
+        this.readStatus = readStatus;
     }
 }

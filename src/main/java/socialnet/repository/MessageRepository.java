@@ -3,18 +3,16 @@ package socialnet.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import socialnet.models.entities.Message;
 
-import socialnet.models.entities.User;
-import socialnet.models.servicies.MessageServiceModel;
+import socialnet.models.views.MessageViewModel;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MessageRepository extends JpaRepository<Message, String> {
 
-    List<MessageServiceModel> getAllByAuthor(User username);
+    List<MessageViewModel> getAllByReadStatus(boolean status);
 
-    List<MessageServiceModel> getAllByRecipient(User recipient);
+    List<MessageViewModel> getAllByDateSent(LocalDateTime date);
 
-    List<MessageServiceModel> getAllByStatus(Boolean status);
-
-    //TODO
+    //TODO how to get the DATE for the method, what format does it comes?
 }

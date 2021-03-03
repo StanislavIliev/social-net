@@ -1,17 +1,13 @@
 package socialnet.models.servicies;
 
-import socialnet.models.entities.User;
-
 import java.time.LocalDateTime;
 
-public class MessageServiceModel extends BaseServiceModel{
+public class MessageServiceModel extends BaseServiceModel {
 
     private String title;
     private String content;
     private LocalDateTime dateSent;
-    private User author;
-    private User recipient;
-    private boolean status;
+    private boolean readStatus;
 
     public MessageServiceModel() {
         super();
@@ -41,27 +37,11 @@ public class MessageServiceModel extends BaseServiceModel{
         this.dateSent = dateSent;
     }
 
-    public User getAuthor() {
-        return author;
+    public boolean isReadStatus() {
+        return readStatus;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public User getRecipient() {
-        return recipient;
-    }
-
-    public void setRecipient(User recipient) {
-        this.recipient = recipient;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setReadStatus(boolean readStatus) {
+        this.readStatus = readStatus;
     }
 }
