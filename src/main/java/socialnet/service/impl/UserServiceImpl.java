@@ -18,6 +18,7 @@ import socialnet.util.UserPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.SimpleMailMessage;
 
@@ -32,8 +33,11 @@ public class UserServiceImpl implements UserService {
 
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper,
-                           AuthorityRepository authorityRepository, BCryptPasswordEncoder bCryptPasswordEncoder, JavaMailSender javaMailSender) {
+    public UserServiceImpl(UserRepository userRepository,
+                           ModelMapper modelMapper,
+                           AuthorityRepository authorityRepository,
+                           BCryptPasswordEncoder bCryptPasswordEncoder,
+                           JavaMailSender javaMailSender) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.authorityRepository = authorityRepository;
@@ -41,8 +45,6 @@ public class UserServiceImpl implements UserService {
         this.javaMailSender = javaMailSender;
 
     }
-
-    //
 
     @Override
     public UserServiceModel register(UserServiceModel inputUser) throws UserExistException {
@@ -53,7 +55,7 @@ public class UserServiceImpl implements UserService {
         this.setImagesToUser(newUser);
         this.sendMessage();
         User sUser = this.saveUserToDb(newUser);
-        if (sUser != null){
+        if (sUser != null) {
             return this.modelMapper.map(sUser, UserServiceModel.class);
         }
         return null;
@@ -61,9 +63,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void resetPassword(UserServiceModel user) throws UserDoesNotExistException {
-        User uuu= this.userRepository.findUsersByUsername(user.getUsername()).orElse(null);
-        if(uuu == null){
-            throw  new UserDoesNotExistException("User does not exist.");
+        User uuu = this.userRepository.findUsersByUsername(user.getUsername()).orElse(null);
+        if (uuu == null) {
+            throw new UserDoesNotExistException("User does not exist.");
         }
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
@@ -82,14 +84,14 @@ public class UserServiceImpl implements UserService {
 
         User foundUser = this.userRepository.findUserByConfirmLinkPassword(uniqueString).orElse(null);
 
-        if(foundUser == null){
+        if (foundUser == null) {
             throw new UserDoesNotExistException("User not found");
         }
         foundUser.setPassword(this.bCryptPasswordEncoder.encode(password));
         foundUser.setConfirmLinkPassword(" ");
 
         this.userRepository.saveAndFlush(foundUser);
-        return  this.modelMapper.map(foundUser,UserServiceModel.class);
+        return this.modelMapper.map(foundUser, UserServiceModel.class);
     }
 
     @Override
@@ -99,12 +101,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserServiceModel getUserByUsername(String username) {
-        return null;
+        return this.modelMapper.map(this.userRepository.findUsersByUsername(username), UserServiceModel.class);
     }
 
     @Override
     public UserServiceModel getUserByEmail(String email) {
-        return null;
+        return this.modelMapper.map(this.userRepository.findUsersByUsername(email), UserServiceModel.class);
     }
 
     @Override
@@ -112,11 +114,12 @@ public class UserServiceImpl implements UserService {
         User user = this.userRepository.findUsersByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User does not exist exception!"));
         return new UserPrincipal(user);
     }
+
     // PRIVATE METHODS
     //==================================================================================================================
 
     private User saveUserToDb(User user) {
-        if (user != null){
+        if (user != null) {
             return this.userRepository.saveAndFlush(user);
         }
         return null;
