@@ -9,11 +9,11 @@ public class Message extends BaseEntity {
 
     private String title;
     private String content;
-    private LocalDateTime dateSent;
+//    private LocalDateTime dateSent;
     private boolean readStatus;
 
     public Message() {
-        dateSent = LocalDateTime.now();
+//        dateSent = LocalDateTime.now();
     }
 
     @Column(nullable = false)
