@@ -1,8 +1,8 @@
 package socialnet.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
-import socialnet.exceptions.UserDoesNotExistException;
-import socialnet.exceptions.UserExistException;
+import socialnet.exceptions.exceptionFolder.UserDoesNotExistException;
+import socialnet.exceptions.exceptionFolder.UserExistException;
 import socialnet.models.servicies.UserServiceModel;
 
 import java.util.List;

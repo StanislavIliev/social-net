@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import socialnet.exceptions.UserExistException;
+import socialnet.exceptions.exceptionFolder.UserExistException;
 import socialnet.models.binding.UserRegisterBindingModel;
 import socialnet.models.servicies.UserServiceModel;
 import socialnet.models.views.UserViewModel;
