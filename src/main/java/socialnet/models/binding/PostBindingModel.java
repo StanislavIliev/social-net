@@ -10,12 +10,9 @@ import java.time.LocalDateTime;
 
 public class PostBindingModel extends BaseBindingModel {
 
-
+	private String userId;
     private String title;
     private String content;
-    private LocalDateTime datePosted;
-    //TODO : ADD Comment
-
 
     public PostBindingModel() {
 
@@ -41,14 +38,22 @@ public class PostBindingModel extends BaseBindingModel {
         this.content = content;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    @FutureOrPresent(message = "Date cannot be in the past")
-    @NotNull
-    public LocalDateTime getDatePosted() {
-        return datePosted;
-    }
+	public String getUserId() {
+		return userId;
+	}
 
-    public void setDatePosted(LocalDateTime datePosted) {
-        this.datePosted = datePosted;
-    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+//    @FutureOrPresent(message = "Date cannot be in the past")
+//    @NotNull
+//    public LocalDateTime getDatePosted() {
+//        return datePosted;
+//    }
+//
+//    public void setDatePosted(LocalDateTime datePosted) {
+//        this.datePosted = datePosted;
+//    }
 }

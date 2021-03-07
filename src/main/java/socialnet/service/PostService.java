@@ -1,11 +1,13 @@
 package socialnet.service;
 
+import socialnet.exceptions.PostDoesNotExistException;
+import socialnet.exceptions.exceptionFolder.UserDoesNotExistException;
 import socialnet.models.servicies.PostServiceModel;
 
 public interface PostService {
 
-    PostServiceModel createPost(PostServiceModel post, String userId);
+    void createPost(PostServiceModel post) throws UserDoesNotExistException;
 
-    boolean deletePost(String postId);
+    boolean deletePost(String postId) throws PostDoesNotExistException, UserDoesNotExistException;
 
 }
