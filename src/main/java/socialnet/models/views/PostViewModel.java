@@ -6,8 +6,6 @@ public class PostViewModel extends BaseViewModel{
 
 	private String title;
 	private String content;
-	// private User author;
-	private LocalDateTime datePosted;
 
 	public PostViewModel() {
 	}
@@ -26,13 +24,5 @@ public class PostViewModel extends BaseViewModel{
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public LocalDateTime getDatePosted() {
-		return datePosted;
-	}
-
-	public void setDatePosted(LocalDateTime datePosted) {
-		this.datePosted = datePosted;
 	}
 }

@@ -7,21 +7,32 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "posts")
 public class Post extends BaseEntity {
 
+	private String userId;
     private String title;
     private String content;
     private LocalDateTime datePosted;
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     public Post() {
     }
 
-    @Column(nullable = false)
+    @Column(name = "user_id")
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	@Column(nullable = false)
     public String getTitle() {
         return title;
     }
