@@ -23,11 +23,21 @@ public class User extends BaseEntity {
     private List<String> sentMessages;
     private List<String> deletedMessages;
     private List<Authority> authorities;
+    private List<Post> posts;
 
     public User() {
     }
 
-    @Column(nullable = false, unique = true)
+    @OneToMany
+    public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	@Column(nullable = false, unique = true)
     public String getUsername() {
         return username;
     }

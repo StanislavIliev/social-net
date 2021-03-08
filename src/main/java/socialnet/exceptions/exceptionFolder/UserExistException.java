@@ -1,4 +1,4 @@
-package socialnet.exceptions;
+package socialnet.exceptions.exceptionFolder;
 
 public class UserExistException extends Exception{
     public UserExistException(String msg) {
