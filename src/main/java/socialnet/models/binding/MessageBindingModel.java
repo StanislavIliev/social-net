@@ -8,6 +8,9 @@ public class MessageBindingModel extends BaseBindingModel {
 
     private String title;
     private String content;
+    private String senderId;
+    private String recipientId;
+
     private boolean readStatus;
     //TODO SQL injection prevention
 
@@ -34,11 +37,21 @@ public class MessageBindingModel extends BaseBindingModel {
         this.content = content;
     }
 
-//    public boolean isReadStatus() {
-//        return readStatus;
-//    }
-//
-//    public void setReadStatus(boolean readStatus) {
-//        this.readStatus = readStatus;
-//    }
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getRecipientId() {
+        return recipientId;
+    }
+
+    public void setRecipientId(String recipientId) {
+        this.recipientId = recipientId;
+    }
+
+
 }

@@ -15,7 +15,7 @@ public interface MessageRepository extends JpaRepository<Message, String> {
 
     List<MessageViewModel> getAllByReadStatus(boolean status);
 
-    //List<MessageViewModel> getAllByDateSent(LocalDateTime date);
+    List<MessageViewModel> getAllByDateSent(LocalDateTime date);
 
     //TODO how to get the DATE for the method, what format does it comes?
 }

@@ -15,12 +15,12 @@ import java.util.List;
 @Service
 public class MessageServiceImpl implements MessageService {
 
-//    private final MessageRepository messageRepository;
-//    
-//    @Autowired
-//    public MessageServiceImpl(MessageRepository messageRepository) {
-//        this.messageRepository = messageRepository;
-//    }
+    private final MessageRepository messageRepository;
+
+    @Autowired
+    public MessageServiceImpl(MessageRepository messageRepository) {
+        this.messageRepository = messageRepository;
+    }
 
     @Override
     public MessageServiceModel send(MessageServiceModel message) {
@@ -29,25 +29,13 @@ public class MessageServiceImpl implements MessageService {
         return null;
     }
 
-	@Override
-	public List<MessageViewModel> getAllByReadStatus(boolean status) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<MessageViewModel> getAllByReadStatus(boolean status) {
+        return this.messageRepository.getAllByReadStatus(status);
+    }
 
-	@Override
-	public List<MessageViewModel> getAllByDateSent(LocalDateTime date) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-//    @Override
-//    public List<MessageViewModel> getAllByReadStatus(boolean status) {
-//        return this.messageRepository.getAllByReadStatus(status);
-//    }
-//
-//    @Override
-//    public List<MessageViewModel> getAllByDateSent(LocalDateTime date) {
-//        return this.messageRepository.getAllByDateSent(date);
-//    }
+    @Override
+    public List<MessageViewModel> getAllByDateSent(LocalDateTime date) {
+        return this.messageRepository.getAllByDateSent(date);
+    }
 }
