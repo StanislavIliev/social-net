@@ -13,6 +13,8 @@ public class CommentViewModel {
 
 	private LocalDateTime dateCreate;
 
+	private LocalDateTime updatedOn;
+
 	public CommentViewModel() {
 		super();
 	}
@@ -39,5 +41,13 @@ public class CommentViewModel {
 
 	public void setAuthor(UserViewModel author) {
 		this.author = author;
+	}
+
+	public LocalDateTime getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(LocalDateTime updatedOn) {
+		this.updatedOn = updatedOn;
 	}
 }

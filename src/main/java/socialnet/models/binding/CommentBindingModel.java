@@ -13,6 +13,8 @@ public class CommentBindingModel {
 
 	private LocalDateTime dateCreate;
 
+	private LocalDateTime updatedOn;
+
 	public CommentBindingModel() {
 		super();
 	}
@@ -34,5 +36,20 @@ public class CommentBindingModel {
 	public void setDateCreate(LocalDateTime dateCreate) {
 		this.dateCreate = dateCreate;
 	}
-	
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public LocalDateTime getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(LocalDateTime updatedOn) {
+		this.updatedOn = updatedOn;
+	}
 }
