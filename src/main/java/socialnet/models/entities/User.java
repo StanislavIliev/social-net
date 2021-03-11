@@ -22,9 +22,9 @@ public class User extends BaseEntity {
     private String lastName;
     @ApiModelProperty(notes = "The registration date of the user.")
     private LocalDateTime registerDate = LocalDateTime.now();
-    @ApiModelProperty(notes = "The username of the user.")
-    private Boolean isEnabled;
     @ApiModelProperty(notes = "The boolean is enabled the account of the user.")
+    private Boolean isEnabled;
+    @ApiModelProperty(notes = "The phone of the user.")
     private String phone;
     @ApiModelProperty(notes = "The confirmation link of the user.")
     private String confirmLinkPassword;
@@ -40,6 +40,7 @@ public class User extends BaseEntity {
     private List<String> deletedMessages;
     @ApiModelProperty(notes = "The authorities of the user.")
     private List<Authority> authorities;
+    @ApiModelProperty(notes = "The posts of the user.")
     private List<Post> posts;
 
     public User() {

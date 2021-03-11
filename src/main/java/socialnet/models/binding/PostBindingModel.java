@@ -1,5 +1,7 @@
 package socialnet.models.binding;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,10 +10,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+@ApiModel(description = "Details about the post binding model.")
 public class PostBindingModel extends BaseBindingModel {
 
-	private String userId;
+    @ApiModelProperty(notes = "The user id of user who made the post.")
+    private String userId;
+    @ApiModelProperty(notes = "The title of the post.")
     private String title;
+    @ApiModelProperty(notes = "The content of the post.")
     private String content;
 
     public PostBindingModel() {

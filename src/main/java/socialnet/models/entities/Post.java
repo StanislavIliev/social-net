@@ -1,5 +1,7 @@
 package socialnet.models.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
@@ -12,12 +14,17 @@ import java.util.List;
 
 @Entity
 @Table(name = "posts")
+@ApiModel(description = "Details about the post.")
 public class Post extends BaseEntity {
-
-	private String userId;
+    @ApiModelProperty(notes = "The user id of user who made the post.")
+    private String userId;
+    @ApiModelProperty(notes = "The title of the post.")
     private String title;
+    @ApiModelProperty(notes = "The content of the post.")
     private String content;
+    @ApiModelProperty(notes = "The date of the post.")
     private LocalDateTime datePosted;
+    @ApiModelProperty(notes = "The comments of the post.")
     private List<Comment> comments = new ArrayList<>();
 
     public Post() {
