@@ -8,6 +8,7 @@ public class CommentServiceModel extends BaseServiceModel{
 	private String content;
 	private UserServiceModel author;
 	private LocalDateTime dateCreate;
+	private LocalDateTime updatedOn;
 
 	public CommentServiceModel() {
 		super();
@@ -37,4 +38,11 @@ public class CommentServiceModel extends BaseServiceModel{
 		this.dateCreate = dateCreate;
 	}
 
+	public LocalDateTime getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(LocalDateTime updatedOn) {
+		this.updatedOn = updatedOn;
+	}
 }

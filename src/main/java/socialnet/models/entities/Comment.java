@@ -15,6 +15,7 @@ public class Comment extends BaseEntity {
     private String content;
     private User author;
     private LocalDateTime dateCreate = LocalDateTime.now();
+    private LocalDateTime updatedOn = LocalDateTime.now();
 
     public Comment() {
         super();
@@ -47,4 +48,12 @@ public class Comment extends BaseEntity {
 	public void setAuthor(User author) {
 		this.author = author;
 	}
+
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDateTime updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 }
