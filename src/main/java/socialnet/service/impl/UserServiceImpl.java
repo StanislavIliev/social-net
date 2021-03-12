@@ -1,5 +1,6 @@
 package socialnet.service.impl;
 
+import io.swagger.annotations.ApiModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.SimpleMailMessage;
 
 @Service
+@ApiModel(description = "Details about methods in the user service.")
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;

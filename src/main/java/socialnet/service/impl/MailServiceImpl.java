@@ -1,5 +1,6 @@
 package socialnet.service.impl;
 
+import io.swagger.annotations.ApiModel;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import java.util.UUID;
 
 
 @Service
+@ApiModel(description = "Details about methods in the mail service.")
 public class MailServiceImpl implements EmailService {
 
     private final JavaMailSender javaMailSender;

@@ -1,22 +1,40 @@
 package socialnet.models.servicies;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.List;
 
+@ApiModel(description = "Details about the user service model.")
 public class UserServiceModel extends BaseServiceModel {
 
+    @ApiModelProperty(notes = "The username of the user.")
     private String username;
+    @ApiModelProperty(notes = "The password of the user.")
     private String password;
+    @ApiModelProperty(notes = "The email of the user.")
     private String email;
+    @ApiModelProperty(notes = "The first name of the user.")
     private String firstName;
+    @ApiModelProperty(notes = "The last name of the user.")
     private String lastName;
+    @ApiModelProperty(notes = "Shows is enabled the account of the user.")
     private Boolean isEnabled;
+    @ApiModelProperty(notes = "The phone of the user.")
     private String phone;
+    @ApiModelProperty(notes = "The confirmation link of the user.")
     private String confirmLinkPassword;
+    @ApiModelProperty(notes = "The role of the user.")
     private String role;
+    @ApiModelProperty(notes = "The list of friends of the user.")
     private List<UserServiceModel> friends;
+    @ApiModelProperty(notes = "The received messages of the user.")
     private List<String> receivedMessages;
+    @ApiModelProperty(notes = "The sent messages of the user.")
     private List<String> sentMessages;
+    @ApiModelProperty(notes = "The deleted messages of the user.")
     private List<String> deletedMessages;
+    @ApiModelProperty(notes = "The authorities of the user.")
     private List<AuthorityServiceModel> authorities;
 
     public UserServiceModel() {

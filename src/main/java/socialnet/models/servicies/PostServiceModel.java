@@ -1,12 +1,20 @@
 package socialnet.models.servicies;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.time.LocalDateTime;
 
+@ApiModel(description = "Details about the post service model.")
 public class PostServiceModel extends BaseServiceModel {
 
-	private String userId;
+    @ApiModelProperty(notes = "The user id of the post.")
+    private String userId;
+    @ApiModelProperty(notes = "The title of the post.")
     private String title;
+    @ApiModelProperty(notes = "The content of the post.")
     private String content;
+    @ApiModelProperty(notes = "The posting date of the post.")
     private LocalDateTime datePosted;
 //    private List<CommentServiceModel> comments;
 

@@ -1,5 +1,6 @@
 package socialnet.service.impl;
 
+import io.swagger.annotations.ApiModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import socialnet.repository.UserRepository;
 import socialnet.service.PostService;
 
 @Service
+@ApiModel(description = "Details about methods in the post service.")
 public class PostServiceImpl implements PostService {
 
 	private final UserRepository userRepository;
