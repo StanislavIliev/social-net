@@ -10,15 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import socialnet.models.binding.NewMessageBindingModel;
-import socialnet.models.binding.MessageBindingModel;
-import socialnet.models.servicies.MessageServiceModel;
 import socialnet.models.views.MessageViewModel;
 import socialnet.repository.MessageRepository;
 import socialnet.repository.UserRepository;
 import socialnet.service.MessageService;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/message")
@@ -48,7 +46,7 @@ public class MessageController {
   	}
   	
   	@GetMapping("/all-inbox/{userId}")
-  	public ResponseEntity<List<MessageViewModel>> getAllInboxMessagesByUser (@PathVariable String userId) {a
+  	public ResponseEntity<List<MessageViewModel>> getAllInboxMessagesByUser (@PathVariable String userId) {
   		// TODO
   		//return new ResponseEntity<>(messages, HttpStatus.OK);
   		return null;
