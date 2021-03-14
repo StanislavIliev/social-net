@@ -1,5 +1,6 @@
 package socialnet.service.impl;
 
+import io.swagger.annotations.ApiModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import socialnet.models.entities.User;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@ApiModel(description = "Details about methods in the message service.")
 public class MessageServiceImpl implements MessageService {
 
 //    private final MessageRepository messageRepository;
