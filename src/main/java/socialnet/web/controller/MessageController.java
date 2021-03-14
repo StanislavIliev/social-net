@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import socialnet.models.binding.NewMessageBindingModel;
+import socialnet.models.binding.MessageBindingModel;
+import socialnet.models.servicies.MessageServiceModel;
 import socialnet.models.views.MessageViewModel;
-import socialnet.repository.MessageRepository;
 import socialnet.repository.UserRepository;
 import socialnet.service.MessageService;
 
@@ -26,17 +26,14 @@ public class MessageController {
     private final MessageService messageService;
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
-    private final MessageRepository messageRepository;
 
     @Autowired
     public MessageController(MessageService messageService,
                              ModelMapper modelMapper,
-                             UserRepository userRepository,
-                             MessageRepository messageRepository) {
+                             UserRepository userRepository) {
         this.messageService = messageService;
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
-        this.messageRepository = messageRepository;
     }
 	
   	@PostMapping("/send-message")
