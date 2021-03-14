@@ -23,6 +23,4 @@ public interface UserService extends UserDetailsService {
 
     UserServiceModel getUserByEmail(String email);
 
-
-
 }
