@@ -16,7 +16,7 @@
     <name>social-net</name>
     <description>social-net</description>
     <properties>
-        <java.version>15</java.version>
+        <java.version>14</java.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->

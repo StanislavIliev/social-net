@@ -15,6 +15,7 @@ public class MessageServiceModel extends BaseServiceModel {
     @ApiModelProperty(notes = "The date of sending of the message.")
     private LocalDateTime dateSent;
     @ApiModelProperty(notes = "The status of the message.")
+
     private boolean readStatus;
 
     public MessageServiceModel() {
@@ -35,14 +36,6 @@ public class MessageServiceModel extends BaseServiceModel {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public LocalDateTime getDateSent() {
-        return dateSent;
-    }
-
-    public void setDateSent(LocalDateTime dateSent) {
-        this.dateSent = dateSent;
     }
 
     public boolean isReadStatus() {
