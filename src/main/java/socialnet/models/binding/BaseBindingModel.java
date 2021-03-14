@@ -1,7 +1,16 @@
 package socialnet.models.binding;
 
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+@ApiModel(description = "Details about the base entity binding model.")
 public class BaseBindingModel {
 
+	@ApiModelProperty(notes = "The id of the base entity.")
 	private String id;
 
 	public BaseBindingModel() {

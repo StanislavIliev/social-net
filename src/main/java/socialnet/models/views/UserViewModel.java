@@ -1,5 +1,7 @@
 package socialnet.models.views;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import socialnet.models.entities.Authority;
 import socialnet.models.entities.Message;
 import socialnet.models.entities.User;
@@ -7,8 +9,10 @@ import socialnet.models.entities.User;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@ApiModel(description = "Details about the message.")
 public class UserViewModel extends BaseViewModel {
 
+    @ApiModelProperty(notes = "The username of the user.")
     private String username;
     private String password;
     private String email;

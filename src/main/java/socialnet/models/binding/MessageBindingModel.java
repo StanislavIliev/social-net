@@ -1,16 +1,23 @@
 package socialnet.models.binding;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 
+@ApiModel(description = "Details about the message binding model.")
 public class MessageBindingModel extends BaseBindingModel {
 
+    @ApiModelProperty(notes = "The title of the message.")
     private String title;
+    @ApiModelProperty(notes = "The content of the message.")
     private String content;
+    @ApiModelProperty(notes = "The sender Id of the message.")
     private String senderId;
+    @ApiModelProperty(notes = "The recpient of the message.")
     private String recipientId;
-
+    @ApiModelProperty(notes = "The status of the message.")
     private boolean readStatus;
     //TODO SQL injection prevention
 

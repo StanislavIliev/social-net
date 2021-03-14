@@ -5,11 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
+@ApiModel(description = "Details about the base entity.")
 public abstract class BaseEntity {
 
+    @ApiModelProperty(notes = "The id of the base entity.")
     private String id;
 
     public BaseEntity() {
