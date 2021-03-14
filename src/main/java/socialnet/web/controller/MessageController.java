@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import socialnet.models.binding.MessageBindingModel;
-import socialnet.models.entities.User;
 import socialnet.models.servicies.MessageServiceModel;
 import socialnet.models.views.MessageViewModel;
 import socialnet.repository.MessageRepository;
@@ -17,8 +16,7 @@ import socialnet.repository.UserRepository;
 import socialnet.service.MessageService;
 
 import javax.validation.Valid;
-import java.util.List;
-import java.util.Optional;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/message")
@@ -62,7 +60,7 @@ public class MessageController {
 //    }
 
     @PostMapping(value = "/allMessages")
-    public ResponseEntity<List> allMessages(@Valid @ModelAttribute MessageViewModel allMessages) {
+    public ResponseEntity<ArrayList<MessageViewModel>> allMessages(@Valid @ModelAttribute MessageViewModel allMessages) {
 
         //TODO how are we getting logged user ID?
 
