@@ -13,11 +13,12 @@ import socialnet.models.binding.NewMessageBindingModel;
 import socialnet.models.binding.MessageBindingModel;
 import socialnet.models.servicies.MessageServiceModel;
 import socialnet.models.views.MessageViewModel;
+import socialnet.repository.MessageRepository;
 import socialnet.repository.UserRepository;
 import socialnet.service.MessageService;
 
 import javax.validation.Valid;
-import java.util.List;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/message")
@@ -26,14 +27,17 @@ public class MessageController {
     private final MessageService messageService;
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
+    private final MessageRepository messageRepository;
 
     @Autowired
     public MessageController(MessageService messageService,
                              ModelMapper modelMapper,
-                             UserRepository userRepository) {
+                             UserRepository userRepository,
+                             MessageRepository messageRepository) {
         this.messageService = messageService;
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
+        this.messageRepository = messageRepository;
     }
 	
   	@PostMapping("/send-message")
@@ -44,7 +48,7 @@ public class MessageController {
   	}
   	
   	@GetMapping("/all-inbox/{userId}")
-  	public ResponseEntity<List<MessageViewModel>> getAllInboxMessagesByUser (@PathVariable String userId) {
+  	public ResponseEntity<List<MessageViewModel>> getAllInboxMessagesByUser (@PathVariable String userId) {a
   		// TODO
   		//return new ResponseEntity<>(messages, HttpStatus.OK);
   		return null;

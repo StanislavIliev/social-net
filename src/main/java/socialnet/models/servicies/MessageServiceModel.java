@@ -37,14 +37,6 @@ public class MessageServiceModel extends BaseServiceModel {
         this.content = content;
     }
 
-    public LocalDateTime getDateSent() {
-        return dateSent;
-    }
-
-    public void setDateSent(LocalDateTime dateSent) {
-        this.dateSent = dateSent;
-    }
-
     public boolean isReadStatus() {
         return readStatus;
     }

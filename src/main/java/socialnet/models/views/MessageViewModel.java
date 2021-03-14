@@ -14,6 +14,8 @@ public class MessageViewModel extends BaseViewModel {
     private String content;
     @ApiModelProperty(notes = "The date of sending of the message.")
     private LocalDateTime dateSent;
+    private String senderId;
+    private String recipientId;
     @ApiModelProperty(notes = "The status of the message.")
     private boolean readStatus;
 
@@ -50,5 +52,21 @@ public class MessageViewModel extends BaseViewModel {
 
     public void setReadStatus(boolean readStatus) {
         this.readStatus = readStatus;
+    }
+
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getRecipientId() {
+        return recipientId;
+    }
+
+    public void setRecipientId(String recipientId) {
+        this.recipientId = recipientId;
     }
 }

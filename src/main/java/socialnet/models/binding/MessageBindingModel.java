@@ -13,7 +13,10 @@ public class MessageBindingModel extends BaseBindingModel {
     private String title;
     @ApiModelProperty(notes = "The content of the message.")
     private String content;
-    @ApiModelProperty(notes = "The status of the message.")
+    private String senderId;
+    private String recipientId;
+
+  @ApiModelProperty(notes = "The status of the message.")
     private boolean readStatus;
     //TODO SQL injection prevention
 
@@ -40,11 +43,21 @@ public class MessageBindingModel extends BaseBindingModel {
         this.content = content;
     }
 
-//    public boolean isReadStatus() {
-//        return readStatus;
-//    }
-//
-//    public void setReadStatus(boolean readStatus) {
-//        this.readStatus = readStatus;
-//    }
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getRecipientId() {
+        return recipientId;
+    }
+
+    public void setRecipientId(String recipientId) {
+        this.recipientId = recipientId;
+    }
+
+
 }
