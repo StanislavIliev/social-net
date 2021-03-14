@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "Details about the authority.")
-public class AuthorityBindingModel {
+public class AuthorityBindingModel extends BaseBindingModel{
 
     @ApiModelProperty(notes = "The role of the authority.")
     private String role;

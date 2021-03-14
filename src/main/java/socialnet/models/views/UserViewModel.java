@@ -2,11 +2,8 @@ package socialnet.models.views;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import socialnet.models.entities.Authority;
-import socialnet.models.entities.Message;
 import socialnet.models.entities.User;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @ApiModel(description = "Details about the message.")
@@ -14,20 +11,14 @@ public class UserViewModel extends BaseViewModel {
 
     @ApiModelProperty(notes = "The username of the user.")
     private String username;
-    private String password;
     private String email;
     private String firstName;
     private String lastName;
-    private LocalDateTime registerDate;
     private Boolean isEnabled;
     private String phone;
     private String confirmLinkPassword;
     private String role;
     private List<User> friends;
-    private List<String> receivedMessages;
-    private List<String> sentMessages;
-    private List<String> deletedMessages;
-    private List<Authority> authorities;
 
     public UserViewModel() {
     }
@@ -38,14 +29,6 @@ public class UserViewModel extends BaseViewModel {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {
@@ -70,14 +53,6 @@ public class UserViewModel extends BaseViewModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public LocalDateTime getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(LocalDateTime registerDate) {
-        this.registerDate = registerDate;
     }
 
     public Boolean getEnabled() {
@@ -118,37 +93,5 @@ public class UserViewModel extends BaseViewModel {
 
     public void setFriends(List<User> friends) {
         this.friends = friends;
-    }
-
-    public List<String> getReceivedMessages() {
-        return receivedMessages;
-    }
-
-    public void setReceivedMessages(List<String> receivedMessages) {
-        this.receivedMessages = receivedMessages;
-    }
-
-    public List<String> getSentMessages() {
-        return sentMessages;
-    }
-
-    public void setSentMessages(List<String> sentMessages) {
-        this.sentMessages = sentMessages;
-    }
-
-    public List<String> getDeletedMessages() {
-        return deletedMessages;
-    }
-
-    public void setDeletedMessages(List<String> deletedMessages) {
-        this.deletedMessages = deletedMessages;
-    }
-
-    public List<Authority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
     }
 }

@@ -3,8 +3,6 @@ package socialnet.models.views;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.time.LocalDateTime;
-
 @ApiModel(description = "Details about the message.")
 public class PostViewModel extends BaseViewModel{
 

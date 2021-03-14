@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @ApiModel(description = "Details about the user binding model.")
-public class UserBindingModel {
+public class UserBindingModel extends BaseBindingModel {
     @ApiModelProperty(notes = "The username of the user. It must be unique.")
     private String username;
     @ApiModelProperty(notes = "The password of the user.")

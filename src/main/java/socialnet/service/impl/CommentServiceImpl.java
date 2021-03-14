@@ -15,7 +15,6 @@ import socialnet.repository.UserRepository;
 import socialnet.service.CommentService;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 @ApiModel(description = "Details about the comment service.")

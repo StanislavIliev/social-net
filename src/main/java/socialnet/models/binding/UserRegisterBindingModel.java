@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel(description = "Details about the user registration binding model.")
-public class UserRegisterBindingModel {
+public class UserRegisterBindingModel extends BaseBindingModel {
 
     @ApiModelProperty(notes = "The username of the user. It must be unique.")
     private String username;

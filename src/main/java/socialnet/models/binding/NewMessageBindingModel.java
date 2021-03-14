@@ -1,5 +1,5 @@
 package socialnet.models.binding;
 
-public class NewMessageBindingModel {
+public class NewMessageBindingModel extends BaseBindingModel {
 
 }

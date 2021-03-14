@@ -1,13 +1,9 @@
 package socialnet.service.impl;
 
 import io.swagger.annotations.ApiModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import socialnet.models.entities.User;
 import socialnet.models.servicies.MessageServiceModel;
 import socialnet.models.views.MessageViewModel;
-import socialnet.repository.MessageRepository;
-import socialnet.repository.UserRepository;
 import socialnet.service.MessageService;
 
 import java.time.LocalDateTime;

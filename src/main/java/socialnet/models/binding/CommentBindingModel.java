@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @ApiModel(description = "Details about the comment binding model.")
-public class CommentBindingModel {
+public class CommentBindingModel extends BaseBindingModel {
 
 	@ApiModelProperty(notes = "The content of the comment.")
 	private String content;
