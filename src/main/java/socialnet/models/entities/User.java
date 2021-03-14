@@ -10,44 +10,45 @@ import java.util.List;
 @Table(name = "users")
 @ApiModel(description = "Details about the user.")
 public class User extends BaseEntity {
-    @ApiModelProperty(notes = "The username of the user. It must be unique.")
-    private String username;
-    @ApiModelProperty(notes = "The password of the user.")
-    private String password;
-    @ApiModelProperty(notes = "The email of the user. It must be unique.")
-    private String email;
-    @ApiModelProperty(notes = "The first name of the user.")
-    private String firstName;
-    @ApiModelProperty(notes = "The last name of the user.")
-    private String lastName;
-    @ApiModelProperty(notes = "The registration date of the user.")
-    private LocalDateTime registerDate = LocalDateTime.now();
-    @ApiModelProperty(notes = "The boolean is enabled the account of the user.")
-    private Boolean isEnabled;
-    @ApiModelProperty(notes = "The phone of the user.")
-    private String phone;
-    @ApiModelProperty(notes = "The confirmation link of the user.")
-    private String confirmLinkPassword;
-    @ApiModelProperty(notes = "The role of the user.")
-    private String role;
-    @ApiModelProperty(notes = "The list of the friends of the user.")
-    private List<User> friends;
-    @ApiModelProperty(notes = "The list of the received messages of the user.")
-    private List<String> receivedMessages;
-    @ApiModelProperty(notes = "The list of the sent messages of the user.")
-    private List<String> sentMessages;
-    @ApiModelProperty(notes = "The deleted messages of the user.")
-    private List<String> deletedMessages;
-    @ApiModelProperty(notes = "The authorities of the user.")
-    private List<Authority> authorities;
-    @ApiModelProperty(notes = "The posts of the user.")
-    private List<Post> posts;
+	
+	@ApiModelProperty(notes = "The username of the user. It must be unique.")
+	private String username;
+	@ApiModelProperty(notes = "The password of the user.")
+	private String password;
+	@ApiModelProperty(notes = "The email of the user. It must be unique.")
+	private String email;
+	@ApiModelProperty(notes = "The first name of the user.")
+	private String firstName;
+	@ApiModelProperty(notes = "The last name of the user.")
+	private String lastName;
+	@ApiModelProperty(notes = "The registration date of the user.")
+	private LocalDateTime registerDate = LocalDateTime.now();
+	@ApiModelProperty(notes = "The boolean is enabled the account of the user.")
+	private Boolean isEnabled;
+	@ApiModelProperty(notes = "The phone of the user.")
+	private String phone;
+	@ApiModelProperty(notes = "The confirmation link of the user.")
+	private String confirmLinkPassword;
+	@ApiModelProperty(notes = "The role of the user.")
+	private String role;
+	@ApiModelProperty(notes = "The list of the friends of the user.")
+	private List<User> friends;
+	@ApiModelProperty(notes = "The list of the received messages of the user.")
+	private List<String> receivedMessages;
+	@ApiModelProperty(notes = "The list of the sent messages of the user.")
+	private List<String> sentMessages;
+	@ApiModelProperty(notes = "The deleted messages of the user.")
+	private List<String> deletedMessages;
+	@ApiModelProperty(notes = "The authorities of the user.")
+	private List<Authority> authorities;
+	@ApiModelProperty(notes = "The posts of the user.")
+	private List<Post> posts;
 
-    public User() {
-    }
+	public User() {
+	}
 
-    @OneToMany
-    public List<Post> getPosts() {
+	@OneToMany
+	public List<Post> getPosts() {
 		return posts;
 	}
 
