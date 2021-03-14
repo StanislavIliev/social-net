@@ -1,18 +1,22 @@
 package socialnet.models.binding;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
-public class CommentBindingModel {
+@ApiModel(description = "Details about the comment binding model.")
+public class CommentBindingModel extends BaseBindingModel {
 
+	@ApiModelProperty(notes = "The content of the comment.")
 	private String content;
-
+	@ApiModelProperty(notes = "The author of the comment.")
 	private String author;
-
+	@ApiModelProperty(notes = "The date of the creation of the comment.")
 	private LocalDateTime dateCreate;
-
+	@ApiModelProperty(notes = "The update date of the comment.")
 	private LocalDateTime updatedOn;
 
 	public CommentBindingModel() {

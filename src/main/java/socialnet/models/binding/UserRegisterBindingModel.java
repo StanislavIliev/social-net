@@ -1,12 +1,22 @@
 package socialnet.models.binding;
 
-public class UserRegisterBindingModel {
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(description = "Details about the user registration binding model.")
+public class UserRegisterBindingModel extends BaseBindingModel {
+
+    @ApiModelProperty(notes = "The username of the user. It must be unique.")
     private String username;
+    @ApiModelProperty(notes = "The password of the user.")
     private String password;
+    @ApiModelProperty(notes = "The email of the user. It must be unique.")
     private String email;
+    @ApiModelProperty(notes = "The first name of the user.")
     private String firstName;
+    @ApiModelProperty(notes = "The last name of the user.")
     private String lastName;
+    @ApiModelProperty(notes = "The phone of the user.")
     private String phone;
 
     public UserRegisterBindingModel() {

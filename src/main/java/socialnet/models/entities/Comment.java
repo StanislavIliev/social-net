@@ -1,5 +1,8 @@
 package socialnet.models.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -9,12 +12,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "comments")
+@ApiModel(description = "Details about the comment.")
 public class Comment extends BaseEntity {
 
-
+    @ApiModelProperty(notes = "The content of the comment.")
     private String content;
+    @ApiModelProperty(notes = "The author of the comment.")
     private User author;
+    @ApiModelProperty(notes = "The date of the creation of the comment.")
     private LocalDateTime dateCreate = LocalDateTime.now();
+    @ApiModelProperty(notes = "The update date of the comment.")
     private LocalDateTime updatedOn = LocalDateTime.now();
 
     public Comment() {

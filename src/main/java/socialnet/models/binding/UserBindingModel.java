@@ -1,5 +1,7 @@
 package socialnet.models.binding;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -7,19 +9,33 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class UserBindingModel {
+@ApiModel(description = "Details about the user binding model.")
+public class UserBindingModel extends BaseBindingModel {
+    @ApiModelProperty(notes = "The username of the user. It must be unique.")
     private String username;
+    @ApiModelProperty(notes = "The password of the user.")
     private String password;
+    @ApiModelProperty(notes = "The email of the user. It must be unique.")
     private String email;
+    @ApiModelProperty(notes = "The first name of the user.")
     private String firstName;
+    @ApiModelProperty(notes = "The last name of the user.")
     private String lastName;
+    @ApiModelProperty(notes = "The registration date of the user.")
     private LocalDateTime registerDate;
+    @ApiModelProperty(notes = "The boolean is enabled the account of the user.")
     private Boolean isEnabled;
+    @ApiModelProperty(notes = "The phone of the user.")
     private String phone;
+    @ApiModelProperty(notes = "The confirmation link of the user.")
     private String confirmLinkPassword;
+    @ApiModelProperty(notes = "The list of the received messages of the user.")
     private List<String> receivedMessages;
+    @ApiModelProperty(notes = "The list of the sent messages of the user.")
     private List<String> sentMessages;
+    @ApiModelProperty(notes = "The deleted messages of the user.")
     private List<String> deletedMessages;
+    @ApiModelProperty(notes = "The authorities of the user.")
     private List<AuthorityBindingModel> authorities;
 
     public UserBindingModel() {

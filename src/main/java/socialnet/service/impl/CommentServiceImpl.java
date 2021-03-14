@@ -1,5 +1,6 @@
 package socialnet.service.impl;
 
+import io.swagger.annotations.ApiModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,9 +15,9 @@ import socialnet.repository.UserRepository;
 import socialnet.service.CommentService;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
+@ApiModel(description = "Details about the comment service.")
 public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final ModelMapper modelMapper;

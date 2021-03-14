@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
-    UserServiceModel register(UserServiceModel user) throws UserExistException;
+    UserServiceModel register(UserServiceModel user) throws UserExistException, UserDoesNotExistException;
 
     void resetPassword(UserServiceModel user) throws UserDoesNotExistException;
 

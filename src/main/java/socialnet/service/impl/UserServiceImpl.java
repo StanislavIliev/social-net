@@ -1,5 +1,6 @@
 package socialnet.service.impl;
 
+import io.swagger.annotations.ApiModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,6 +24,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.SimpleMailMessage;
 
 @Service
+@ApiModel(description = "Details about methods in the user service.")
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -47,18 +49,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserServiceModel register(UserServiceModel inputUser) throws UserExistException {
+    public UserServiceModel register(UserServiceModel inputUser) throws UserExistException, UserDoesNotExistException {
         User fUser = this.userRepository.findUserByEmail(inputUser.getEmail()).orElse(null);
-        if (fUser != null) throw new UserExistException("User exist exception!");
+        if (fUser != null) throw new UserExistException("User does not exist exception!");
         User newUser = this.modelMapper.map(inputUser, User.class);
         this.setRoleAndAuthorities(newUser);
-        this.setImagesToUser(newUser);
-        this.sendMessage();
+        //this.setImagesToUser(newUser);
+        //this.sendMessage();
         User sUser = this.saveUserToDb(newUser);
-        if (sUser != null) {
-            return this.modelMapper.map(sUser, UserServiceModel.class);
-        }
-        return null;
+        return this.modelMapper.map(sUser, UserServiceModel.class);
     }
 
     @Override
@@ -119,11 +118,10 @@ public class UserServiceImpl implements UserService {
     // PRIVATE METHODS
     //==================================================================================================================
 
-    private User saveUserToDb(User user) {
-        if (user != null) {
-            return this.userRepository.saveAndFlush(user);
-        }
-        return null;
+
+    private User saveUserToDb(User user) throws UserDoesNotExistException {
+        if (user == null) throw new UserDoesNotExistException("User does not exist exception");
+        return this.userRepository.saveAndFlush(user);
     }
 
     private void sendMessage() {

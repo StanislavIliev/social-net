@@ -1,7 +1,12 @@
 package socialnet.models.servicies;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Details about the base service model.")
 public class BaseServiceModel {
 
+	@ApiModelProperty(notes = "The id of the base service model.")
 	private String id;
 
 	public BaseServiceModel() {

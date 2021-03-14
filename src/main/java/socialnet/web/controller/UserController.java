@@ -37,7 +37,7 @@ public class UserController {
 
     @PostMapping(value = "/register")
     public ResponseEntity<UserViewModel> registerPost(@Valid @ModelAttribute UserRegisterBindingModel user)
-            throws UserExistException {
+            throws UserExistException, UserDoesNotExistException {
         UserServiceModel u = this.userService.register(this.modelMapper.map(user, UserServiceModel.class));
         UserViewModel rUser = this.modelMapper.map(u, UserViewModel.class);
         return new ResponseEntity<>(rUser, HttpStatus.OK);
