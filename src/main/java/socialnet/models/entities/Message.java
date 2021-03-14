@@ -15,12 +15,12 @@ public class Message extends BaseEntity {
     private String title;
     @ApiModelProperty(notes = "The content of the message.")
     private String content;
-    @ApiModelProperty(notes = "The sent date of the message.")
-    private LocalDateTime dateSent;
+//    private LocalDateTime dateSent;
     @ApiModelProperty(notes = "The status of the message.")
     private boolean readStatus;
 
     public Message() {
+//        dateSent = LocalDateTime.now();
     }
 
     @Column(nullable = false)
@@ -41,21 +41,11 @@ public class Message extends BaseEntity {
         this.content = content;
     }
 
-    @Column(name = "read_status")
     public boolean isReadStatus() {
         return readStatus;
     }
 
     public void setReadStatus(boolean readStatus) {
         this.readStatus = readStatus;
-    }
-
-    @Column(name = "date_sent")
-    public LocalDateTime getDateSent() {
-        return dateSent = LocalDateTime.now();
-    }
-
-    public void setDateSent(LocalDateTime dateSent) {
-        this.dateSent = dateSent;
     }
 }

@@ -188,7 +188,4 @@ public class User extends BaseEntity {
     public void setDeletedMessages(List<String> deletedMessages) {
         this.deletedMessages = deletedMessages;
     }
-
-
-
 }
