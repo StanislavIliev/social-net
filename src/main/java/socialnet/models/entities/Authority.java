@@ -15,6 +15,7 @@ public class Authority extends BaseEntity implements GrantedAuthority{
     @ApiModelProperty(notes = "The name of the authority.")
     private String authority;
 
+
     public Authority(){
     }
 

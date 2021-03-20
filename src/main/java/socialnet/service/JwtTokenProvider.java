@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import socialnet.models.servicies.UserServiceModel;
 
-interface JwtTokenProvider {
+public interface JwtTokenProvider {
 
 	String createJwtToken(UserServiceModel usm);
 	

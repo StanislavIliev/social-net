@@ -29,8 +29,12 @@ public class User extends BaseEntity {
 	private String phone;
 	@ApiModelProperty(notes = "The confirmation link of the user.")
 	private String confirmLinkPassword;
-	@ApiModelProperty(notes = "The role of the user.")
-	private String role;
+
+//	@ApiModelProperty(notes = "The role of the user.")
+//	private String role;
+
+
+
 	@ApiModelProperty(notes = "The list of the friends of the user.")
 	private List<User> friends;
 	@ApiModelProperty(notes = "The list of the received messages of the user.")
@@ -39,10 +43,15 @@ public class User extends BaseEntity {
 	private List<String> sentMessages;
 	@ApiModelProperty(notes = "The deleted messages of the user.")
 	private List<String> deletedMessages;
-	@ApiModelProperty(notes = "The authorities of the user.")
-	private List<Authority> authorities;
+
+//	@ApiModelProperty(notes = "The authorities of the user.")
+//	private List<Authority> authorities;
+
 	@ApiModelProperty(notes = "The posts of the user.")
 	private List<Post> posts;
+
+	private List<Role> roles;
+
 
 	public User() {
 	}
@@ -137,21 +146,13 @@ public class User extends BaseEntity {
         this.confirmLinkPassword = confirmLinkPassword;
     }
 
-    @OneToMany
-    public List<Authority> getAuthorities() {
-        return authorities;
+    @ManyToMany
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @OneToMany

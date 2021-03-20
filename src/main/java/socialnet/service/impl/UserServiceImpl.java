@@ -134,15 +134,15 @@ public class UserServiceImpl implements UserService {
 
     private void setRoleAndAuthorities(User user) {
         if (this.userRepository.count() == 0) {
-            user.setRole("ADMIN");
+//            user.setRole("ADMIN");
             List<Authority> aaa = this.authorityRepository.findAll();
-            user.setAuthorities(aaa);
+//            user.setAuthorities(aaa);
         } else {
-            user.setRole("USER");
+//            user.setRole("USER");
             List<Authority> authorities = new ArrayList<>();
             Authority authority = this.authorityRepository.findByAuthority("ROLE_USER").orElse(null);
             authorities.add(authority);
-            user.setAuthorities(authorities);
+//            user.setAuthorities(authorities);
         }
     }
 }

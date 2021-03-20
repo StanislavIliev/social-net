@@ -24,8 +24,6 @@ public class UserServiceModel extends BaseServiceModel {
     private String phone;
     @ApiModelProperty(notes = "The confirmation link of the user.")
     private String confirmLinkPassword;
-    @ApiModelProperty(notes = "The role of the user.")
-    private String role;
     @ApiModelProperty(notes = "The list of friends of the user.")
     private List<UserServiceModel> friends;
     @ApiModelProperty(notes = "The received messages of the user.")
@@ -34,11 +32,19 @@ public class UserServiceModel extends BaseServiceModel {
     private List<String> sentMessages;
     @ApiModelProperty(notes = "The deleted messages of the user.")
     private List<String> deletedMessages;
-    @ApiModelProperty(notes = "The authorities of the user.")
-    private List<AuthorityServiceModel> authorities;
+
+    private List<RoleServiceModel> roles;
 
     public UserServiceModel() {
         super();
+    }
+
+    public List<RoleServiceModel> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleServiceModel> roles) {
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -105,14 +111,6 @@ public class UserServiceModel extends BaseServiceModel {
         this.confirmLinkPassword = confirmLinkPassword;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public List<UserServiceModel> getFriends() {
         return friends;
     }
@@ -145,11 +143,4 @@ public class UserServiceModel extends BaseServiceModel {
         this.deletedMessages = deletedMessages;
     }
 
-    public List<AuthorityServiceModel> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<AuthorityServiceModel> authorities) {
-        this.authorities = authorities;
-    }
 }
