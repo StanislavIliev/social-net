@@ -22,7 +22,7 @@ public class Comment extends BaseEntity {
     @ApiModelProperty(notes = "The date of the creation of the comment.")
     private LocalDateTime dateCreate = LocalDateTime.now();
     @ApiModelProperty(notes = "The update date of the comment.")
-    private LocalDateTime updatedOn = LocalDateTime.now();
+    private LocalDateTime updatedOn;
 
     public Comment() {
         super();
@@ -56,6 +56,7 @@ public class Comment extends BaseEntity {
 		this.author = author;
 	}
 
+	@Column(name = "updated_on")
     public LocalDateTime getUpdatedOn() {
         return updatedOn;
     }
